@@ -1,29 +1,30 @@
 
 import Card from "../Components/Card";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { ContextGlobal } from "../Components/utils/global.context";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 
 const Home = () => {
   const {gralApiCall, globalData} = useContext(ContextGlobal);
+  
   useEffect(() => {
-    gralApiCall();
+    gralApiCall()
   },[])
   
   return (
     <main className="">
       <h1>Home</h1>
       <div className="card-grid">
-        {globalData.data.map((dentist) => {
+        {globalData.data ? globalData.data.map((dentist) => {
           return <Card 
             key={dentist.id} 
             name={dentist.name} 
             email={dentist.email} 
             id={dentist.id} 
             username={dentist.username}
-          />
-          })}
+            /> 
+          }) : <h1>Loading...</h1>}
       </div>
     </main>
   );

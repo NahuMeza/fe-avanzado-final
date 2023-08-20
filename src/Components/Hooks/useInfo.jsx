@@ -2,7 +2,7 @@ import {useCallback, useReducer} from "react";
 import axios from "axios";
 
 export const useInfo = () =>{
-    const initialState = {theme: "", data: [], error:false};
+    const initialState = {theme: "", data: null, error:false};
 
     const gralApiCall = useCallback(() => {
         axios.get("https://jsonplaceholder.typicode.com/users")
