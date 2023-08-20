@@ -1,22 +1,21 @@
-// import Card from "../Components/Card";
-import axios from "axios";
+
 import Card from "../Components/Card";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ContextGlobal } from "../Components/utils/global.context";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 
 const Home = () => {
-  const [dentistData, setDentistData] = useState([]);
+  const {gralApiCall, globalData} = useContext(ContextGlobal);
   useEffect(() => {
-      axios.get("https://jsonplaceholder.typicode.com/users")
-      .then((response) => {setDentistData(response.data);})
+    gralApiCall();
   },[])
   
   return (
     <main className="">
       <h1>Home</h1>
       <div className="card-grid">
-        {dentistData.map((dentist) => {
+        {globalData.data.map((dentist) => {
           return <Card 
             key={dentist.id} 
             name={dentist.name} 
