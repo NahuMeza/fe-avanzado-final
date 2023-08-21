@@ -9,15 +9,14 @@ const Home = () => {
   const {gralApiCall, globalData} = useContext(ContextGlobal);
   
   useEffect(() => {
-    gralApiCall()
-  },[])
+    !globalData.error ? (!globalData.data && gralApiCall()) :  gralApiCall()
+  },[]);
 
   const dataMap = globalData.data ? 
     globalData.data.map((dentist) => {
       return <Card 
         key={dentist.id} 
         name={dentist.name} 
-        email={dentist.email} 
         id={dentist.id} 
         username={dentist.username}
       /> 

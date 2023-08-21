@@ -5,9 +5,10 @@ import { useContext, useEffect } from "react";
 
 const Favs = () => {
   const {globalData, gralApiCall} = useContext(ContextGlobal);
+
   useEffect(() => {
-    globalData.data ? gralApiCall() : null
-  },[])
+    !globalData.error ? (!globalData.data && gralApiCall()) :  gralApiCall()
+  },[]);
   
   return (
     <>
