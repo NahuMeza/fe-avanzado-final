@@ -11,20 +11,23 @@ const Home = () => {
   useEffect(() => {
     gralApiCall()
   },[])
-  
+
+  const dataMap = globalData.data ? 
+    globalData.data.map((dentist) => {
+      return <Card 
+        key={dentist.id} 
+        name={dentist.name} 
+        email={dentist.email} 
+        id={dentist.id} 
+        username={dentist.username}
+      /> 
+    }) : <h1>Loading...</h1>;
+
   return (
     <main className="">
       <h1>Home</h1>
       <div className="card-grid">
-        {globalData.data ? globalData.data.map((dentist) => {
-          return <Card 
-            key={dentist.id} 
-            name={dentist.name} 
-            email={dentist.email} 
-            id={dentist.id} 
-            username={dentist.username}
-            /> 
-          }) : <h1>Loading...</h1>}
+        { !globalData.error ? dataMap : <h1>Something went wrong!...</h1>}
       </div>
     </main>
   );
