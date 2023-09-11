@@ -1,8 +1,8 @@
-const Card = ({ name, username, id }) => {
-  const addFav = () => {
-    // Aqui iria la logica para agregar la Card en el localStorage
-  };
+import { useFav } from "./Hooks/useFav"
 
+const Card = ({ name, username, id }) => {
+
+  const {isFav, setIsFav} = useFav({id});
   return (
     <div className="card">
       {/* En cada card deberan mostrar en name - username y el id */}
@@ -12,7 +12,7 @@ const Card = ({ name, username, id }) => {
       {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-      <button onClick={addFav} className="favButton">
+      <button className="favButton" onClick={() => {!isFav ? setIsFav({type: "SET_FAV", payload: id}) : setIsFav({type: "REMOVE_FAV", payload: id})}}>
         Add fav
       </button>
     </div>
