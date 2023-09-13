@@ -13,7 +13,7 @@ const Card = ({ name, username, id }) => {
 
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
       <button className="favButton" onClick={() => {!isFav ? setIsFav({type: "SET_FAV", payload: id}) : setIsFav({type: "REMOVE_FAV", payload: id})}}>
-        Add fav
+        {!isFav ? "Add fav" : "Delete Fav"}
       </button>
     </div>
   );

@@ -8,12 +8,10 @@ import { ContextGlobal } from "../utils/global.context";
       switch (action.type) {
         case "SET_FAV":
           favIds.push(action.payload);
-          console.log(favIds)
           localStorage.setItem("fav", JSON.stringify(favIds));
           return true;
         case "REMOVE_FAV":
           favIds.splice(favIds.indexOf(action.payload), 1);
-          console.log(favIds)
           localStorage.setItem("fav", JSON.stringify(favIds));
           return false;
         default:

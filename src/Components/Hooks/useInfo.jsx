@@ -1,7 +1,7 @@
 import {useCallback, useReducer} from "react";
 import axios from "axios";
 
-export const useInfo = () =>{
+export const useInfo = () => {
     const initialState = {theme: "", data: null, error:false};
 
     const gralApiCall = useCallback(() => {
