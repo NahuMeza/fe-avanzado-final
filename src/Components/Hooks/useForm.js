@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export const useForm = () => {
       const errorStr = {
@@ -33,6 +34,13 @@ export const useForm = () => {
     setNameValid(true);
     setEmailValid(true);
     setError(false);
+    Swal.fire({
+        title: "Perfect!",
+        text: "The form was sent successfully",
+        icon: "success",
+        background: "#000",
+        color: "#fff"
+    });
   }
 
     return {handleSubmit, nameValid, emailValid, error};
