@@ -7,7 +7,7 @@ const Navbar = () => {
   const { changeTheme } = useTheme()
   
   return (
-    <nav>
+    <nav className="navbar">
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
       <NavLink to="/" > Home </NavLink>

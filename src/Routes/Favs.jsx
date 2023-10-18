@@ -10,11 +10,12 @@ const Favs = () => {
   return (
     <>
       <h1>Dentists Favs</h1>
+        {favsDentist.length == 0 && <h2>No hay dentistas favoritos...</h2>}
       <div className="card-grid">
         {/* este componente debe consumir los destacados del localStorage */}
-        {favsDentist.length != 0 ? 
+        {favsDentist.length != 0 && 
           favsDentist.map((dentist) => <Card key={dentist.id} name={dentist.name} id={dentist.id} username={dentist.username}  />) 
-          : "No hay dentistas favoritos"}
+        }
       </div>
     </>
   );

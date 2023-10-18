@@ -23,7 +23,7 @@ const Home = () => {
     }) : <h1>Loading...</h1>;
 
   return (
-    <main className="">
+    <main className="home">
       <h1>Home</h1>
       <div className="card-grid">
         { !globalData.error ? dataMap : <h1>Something went wrong!...</h1>}
