@@ -23,7 +23,7 @@ const Home = () => {
     }) : <h1>Loading...</h1>;
 
   return (
-    <main className="home">
+    <main className={`home ${globalData.darkTheme ? "dark" : ""}`}>
       <h1>Home</h1>
       <div className="card-grid">
         { !globalData.error ? dataMap : <h1>Something went wrong!...</h1>}

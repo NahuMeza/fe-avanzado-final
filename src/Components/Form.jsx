@@ -4,7 +4,7 @@ const Form = () => {
   const {handleSubmit, nameValid, emailValid, error} = useForm();
 
   return (
-    <div>
+    <div className="form">
       <form noValidate onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input 
@@ -24,7 +24,7 @@ const Form = () => {
         />
         <button type="submit">Submit</button>
       </form>
-        {error && <p>{error}</p>}
+      <p style={{margin:0, height:"20px"}}>{error && error}</p>
     </div>
   );
 };

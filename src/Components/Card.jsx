@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { useFav } from "./Hooks/useFav"
+import { useContext } from "react";
+import { ContextGlobal } from "./utils/global.context";
 
 const Card = ({ name, username, id }) => {
+  const { globalData } = useContext(ContextGlobal);
   const navigate = useNavigate();
   const {isFav, setIsFav} = useFav({id});
   return (
-    <div className="card">
+    <div className="card" style={{ backgroundColor: globalData.darkTheme ? "#242425" : ""}} >
       {/* En cada card deberan mostrar en name - username y el id */}
       <div className="card-info" onClick={() => {navigate(`/dentist/${id}`)}}>
         <h3>{name}</h3>
